@@ -1,16 +1,20 @@
 import "./CostItem.css"
 
-function CostItem() {
-    const costDate = new Date(2022, 2, 12);
-    const costDescription = "Холодильник";
-    const costAmount = 999.99;
+function CostItem(props) {
+    const month = props.date.toLocaleString('ru-RU', {month: "long"});
+    const year = props.date.getFullYear();
+    const day = props.date.toLocaleString('ru-RU', {day: "2-digit"});
 
     return (
         <div className='costItem'>
-            <div>{costDate.toISOString()}</div>
+            <div>
+                <div>{month}</div>
+                <div>{year}</div>
+                <div>{day}</div>
+            </div>
             <div className='costItem_description'>
-                <h2>{costDescription}</h2>
-                <div className='costItem_price'>{costAmount}$</div>
+                <h2>{props.description}</h2>
+                <div className='costItem_price'>{props.amount}$</div>
             </div>
         </div>
     );
