@@ -1,6 +1,6 @@
-import CostItem from "./components/CostItem";
+import Costs from "./components/Costs/Costs";
 
-function App() {
+const App = () => {
     const costs = [
         {
             date: new Date(2021, 2, 12),
@@ -17,16 +17,15 @@ function App() {
             description: "Car",
             amount: 64.99
         },
-    ]
+    ];
 
-    const costItem = costs.map( c => <CostItem date={c.date} description={c.description} amount={c.amount}/>);
 
     return (
         <div>
             <h1>
-                React
+                React Cost Manager
             </h1>
-            {costItem}
+            <Costs cost={costs}/>
         </div>
     );
 }
